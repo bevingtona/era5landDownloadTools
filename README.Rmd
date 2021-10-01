@@ -1,0 +1,29 @@
+---
+title: "README"
+author: "A. Bevington"
+date: "01/10/2021"
+output:   
+  md_document:
+    variant: markdown_github
+
+---
+
+# Installation
+
+```{r setup}
+devtools::install_github("bevingtona/era5landDownloadTools")
+```
+
+# Download data
+
+```{r cars}
+era5landDownloadTools:: 
+```
+
+# Read GRIB 
+
+```{r pressure, echo=FALSE}
+
+```
+
+# Plot 
