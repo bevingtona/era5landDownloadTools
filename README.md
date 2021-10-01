@@ -1,10 +1,10 @@
-# Installation
+## Installation
 
 ``` r
 devtools::install_github("bevingtona/era5landDownloadTools")
 ```
 
-# Download data
+## Download data
 
 ``` r
 era_download <- era5_download_monthly(
@@ -18,7 +18,7 @@ era_download <- era5_download_monthly(
   download_dir = ".") 
 ```
 
-# Read GRIB
+## Read GRIB
 
 ``` r
 era_stars <- era5_read_monthly_stars(
@@ -28,3 +28,9 @@ era_stars <- era5_read_monthly_stars(
   variables = c('2m_temperature'),
   download_dir = ".")
 ```
+
+## Comments:
+
+-   Hourly can be very slow! like, 20 hours on the server!
+-   Check on your requests here:
+    <https://cds.climate.copernicus.eu/cdsapp#!/yourrequests>
