@@ -15,8 +15,8 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Imports:
-	ecmwfr,
-	sf,
-  dplyr,
-  stringr,
-  stars
+	ecmwfr (>= 1.3.0),
+	sf (>= 1.9-8),
+  dplyr (>= 1.0.6),
+  stringr (>= 1.4.0),
+  stars (>= 1.5-2)
