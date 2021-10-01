@@ -22,8 +22,8 @@ era5_download_hourly <- function(aoi = aoi,
                                  days = 1:31,
                                  hours = 0:23,
                                  variables = c('surface_net_solar_radiation'),
-                                 user = "71149",
-                                 key = "76f3cbc5-bb4f-4347-8a51-80dc2bf1ca66",
+                                 user = "",
+                                 key = "",
                                  download_dir = "."){
 
   ### AUTHENTICATE ####
@@ -78,7 +78,7 @@ era5_download_hourly <- function(aoi = aoi,
                   "format" = "grib",
                   "target" = target)
 
-  file <- wf_request(user     = "71149",
+  file <- wf_request(user     = user,
                      request  = request,
                      transfer = TRUE,
                      path     = download_dir)
@@ -108,8 +108,8 @@ era5_download_monthly <- function(aoi = aoi,
                                   years = 2021:2021,
                                   months = 5:8,
                                   variables = c('2m_temperature', 'total_precipitation'),
-                                  user = "71149",
-                                  key = "76f3cbc5-bb4f-4347-8a51-80dc2bf1ca66",
+                                  user = "",
+                                  key = "",
                                   download_dir = "."){
 
   ### AUTHENTICATE ####
@@ -153,10 +153,10 @@ era5_download_monthly <- function(aoi = aoi,
                   "format" = "grib",
                   "target" = target)
 
-  file <- wf_request(user     = "71149",   # user ID (for authentification)
-                     request  = request,  # the request
-                     transfer = TRUE,     # download the file
-                     path     = download_dir)      # store data in current working directory
+  file <- wf_request(user     = user,
+                     request  = request,
+                     transfer = TRUE,
+                     path     = download_dir)
 
   return(file)
 }
