@@ -14,9 +14,16 @@ output:
 devtools::install_github("bevingtona/era5landDownloadTools")
 ```
 
+## Prep example
+
+```{r aoi, eval=FALSE}
+aoi = mapedit::editMap()
+name = "test"
+``` 
+
 ## Download data
 
-```{r cars, eval=FALSE}
+```{r download, eval=FALSE}
 era_download <- era5_download_monthly(
   aoi = aoi,
   aoi_name = name,
@@ -30,7 +37,7 @@ era_download <- era5_download_monthly(
 
 ## Read GRIB 
 
-```{r pressure, eval=FALSE}
+```{r read, eval=FALSE}
 era_stars <- era5_read_monthly_stars(
   aoi_name = name,
   years = 2021:2021,

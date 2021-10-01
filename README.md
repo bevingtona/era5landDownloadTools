@@ -4,6 +4,13 @@
 devtools::install_github("bevingtona/era5landDownloadTools")
 ```
 
+## Prep example
+
+``` r
+aoi = mapedit::editMap()
+name = "test"
+```
+
 ## Download data
 
 ``` r
