@@ -14,7 +14,7 @@ name = "test"
 ## Download data
 
 ``` r
-era_download <- era5_download_monthly(
+era5land_download <- era5land_download_monthly(
   aoi = aoi,
   aoi_name = name,
   years = 2021:2021,
@@ -28,7 +28,7 @@ era_download <- era5_download_monthly(
 ## Read GRIB
 
 ``` r
-era_stars <- era5_read_monthly_stars(
+era5land_stars <- era5land_read_monthly_stars(
   aoi_name = name,
   years = 2021:2021,
   months = 5:8,
