@@ -15,7 +15,7 @@
 #' @return A matrix of the infile
 #' @export
 
-era5_download_hourly <- function(aoi = aoi,
+era5land_download_hourly <- function(aoi = aoi,
                                  aoi_name = name,
                                  years = 2021:2021,
                                  months = 5:8,
@@ -103,7 +103,7 @@ era5_download_hourly <- function(aoi = aoi,
 
 
 
-era5_download_monthly <- function(aoi = aoi,
+era5land_download_monthly <- function(aoi = aoi,
                                   aoi_name = name,
                                   years = 2021:2021,
                                   months = 5:8,
