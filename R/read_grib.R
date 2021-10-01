@@ -12,7 +12,7 @@
 #' @return A matrix of the infile
 #' @export
 
-era5_read_hourly_stars <- function(aoi_name = name,
+era5land_read_hourly_stars <- function(aoi_name = name,
                                    years = 2021:2021,
                                    months = 5:8,
                                    days = 1:31,
@@ -77,7 +77,7 @@ era5_read_hourly_stars <- function(aoi_name = name,
 #' @return A matrix of the infile
 #' @export
 
-era5_read_monthly_stars <- function(aoi_name = name,
+era5land_read_monthly_stars <- function(aoi_name = name,
                                     years = 2021:2021,
                                     months = 5:8,
                                     variables = c('surface_net_solar_radiation'),
