@@ -6,7 +6,7 @@
 \usage{
 era5land_download_hourly(
   aoi = aoi,
-  aoi_name = name,
+  aoi_name = "name",
   years = 2021:2021,
   months = 5:8,
   days = 1:31,
@@ -14,7 +14,9 @@ era5land_download_hourly(
   variables = c("surface_net_solar_radiation"),
   user = "",
   key = "",
-  download_dir = "."
+  download_dir = ".",
+  format = c("netcdf", "grib"),
+  ...
 )
 }
 \arguments{
@@ -37,6 +39,11 @@ era5land_download_hourly(
 \item{key}{your api key as a string}
 
 \item{download_dir}{download directory}
+
+\item{format}{format of the data. \code{"netcdf"} (default) or \code{"grib"}}
+
+\item{...}{further parameters passed to \code{\link[ecmwfr:wf_request]{ecmwfr::wf_request()}}
+#'}
 }
 \value{
 A matrix of the infile

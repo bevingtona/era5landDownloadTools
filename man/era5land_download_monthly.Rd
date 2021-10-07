@@ -11,8 +11,9 @@ era5land_download_monthly(
   months = 5:8,
   variables = c("2m_temperature", "total_precipitation"),
   user = "",
-  key = "",
-  download_dir = "."
+  download_dir = ".",
+  format = c("netcdf", "grib"),
+  ...
 )
 }
 \arguments{
@@ -28,9 +29,12 @@ era5land_download_monthly(
 
 \item{user}{your user id as a string}
 
-\item{key}{your api key as a string}
-
 \item{download_dir}{download directory}
+
+\item{format}{format of the data. \code{"netcdf"} (default) or \code{"grib"}}
+
+\item{...}{further parameters passed to \code{\link[ecmwfr:wf_request]{ecmwfr::wf_request()}}
+#'}
 }
 \value{
 A matrix of the infile
