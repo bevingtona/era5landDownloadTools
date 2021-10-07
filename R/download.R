@@ -33,7 +33,7 @@ era5land_download_hourly <- function(aoi = aoi,
 
   ### AUTHENTICATE ####
 
-  wf_set_key(user = user,
+  ecmwfr::wf_set_key(user = user,
              key = key,
              service = "cds")
 
@@ -69,10 +69,10 @@ era5land_download_hourly <- function(aoi = aoi,
 
   # FORMAT BOUNDS
 
-  bounds = paste(st_bbox(aoi)[4] %>% as.numeric() %>% round(2),
-                 st_bbox(aoi)[1] %>% as.numeric() %>% round(2),
-                 st_bbox(aoi)[2] %>% as.numeric() %>% round(2),
-                 st_bbox(aoi)[3] %>% as.numeric() %>% round(2), sep = "/")
+  bounds = paste(sf::st_bbox(aoi)[4] %>% as.numeric() %>% round(2),
+                 sf::st_bbox(aoi)[1] %>% as.numeric() %>% round(2),
+                 sf::st_bbox(aoi)[2] %>% as.numeric() %>% round(2),
+                 sf::st_bbox(aoi)[3] %>% as.numeric() %>% round(2), sep = "/")
 
   # Setup request
   request <- list("dataset_short_name" = 'reanalysis-era5-land',
@@ -86,7 +86,7 @@ era5land_download_hourly <- function(aoi = aoi,
                   "format" = format,
                   "target" = target)
 
-  file <- wf_request(user     = user,
+  file <- ecmwfr::wf_request(user     = user,
                      request  = request,
                      transfer = TRUE,
                      path     = download_dir)
@@ -122,7 +122,7 @@ era5land_download_monthly <- function(aoi = aoi,
 
   ### AUTHENTICATE ####
 
-  wf_set_key(user = user,
+  ecmwfr::wf_set_key(user = user,
              key = key,
              service = "cds")
 
@@ -145,10 +145,10 @@ era5land_download_monthly <- function(aoi = aoi,
 
   # FORMAT BOUNDS
 
-  bounds = paste(st_bbox(aoi)[4] %>% as.numeric() %>% round(0),
-                 st_bbox(aoi)[1] %>% as.numeric() %>% round(0),
-                 st_bbox(aoi)[2] %>% as.numeric() %>% round(0),
-                 st_bbox(aoi)[3] %>% as.numeric() %>% round(0), sep = "/")
+  bounds = paste(sf::st_bbox(aoi)[4] %>% as.numeric() %>% round(0),
+                 sf::st_bbox(aoi)[1] %>% as.numeric() %>% round(0),
+                 sf::st_bbox(aoi)[2] %>% as.numeric() %>% round(0),
+                 sf::st_bbox(aoi)[3] %>% as.numeric() %>% round(0), sep = "/")
 
   # Setup request
   request <- list("dataset_short_name" = 'reanalysis-era5-land-monthly-means',
@@ -161,7 +161,7 @@ era5land_download_monthly <- function(aoi = aoi,
                   "format" = "grib",
                   "target" = target)
 
-  file <- wf_request(user     = user,
+  file <- ecmwfr::wf_request(user     = user,
                      request  = request,
                      transfer = TRUE,
                      path     = download_dir)
