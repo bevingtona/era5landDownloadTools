@@ -69,10 +69,10 @@ era5land_download_hourly <- function(aoi = aoi,
 
   # FORMAT BOUNDS
 
-  bounds = paste(st_bbox(aoi)[4] %>% as.numeric() %>% round(0),
-                 st_bbox(aoi)[1] %>% as.numeric() %>% round(0),
-                 st_bbox(aoi)[2] %>% as.numeric() %>% round(0),
-                 st_bbox(aoi)[3] %>% as.numeric() %>% round(0), sep = "/")
+  bounds = paste(st_bbox(aoi)[4] %>% as.numeric() %>% round(2),
+                 st_bbox(aoi)[1] %>% as.numeric() %>% round(2),
+                 st_bbox(aoi)[2] %>% as.numeric() %>% round(2),
+                 st_bbox(aoi)[3] %>% as.numeric() %>% round(2), sep = "/")
 
   # Setup request
   request <- list("dataset_short_name" = 'reanalysis-era5-land',
