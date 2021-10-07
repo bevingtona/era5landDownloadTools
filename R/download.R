@@ -11,12 +11,14 @@
 #' @param variables 'surface_net_solar_radiation','2m_temperature','total_precipitation','snow_depth_water_equivalent', ...
 #' @param user your user id as a string
 #' @param key your api key as a string
+#' @param format format of the data. `"netcdf"` (default) or `"grib"`
 #' @param download_dir download directory
+#'
 #' @return A matrix of the infile
 #' @export
 
 era5land_download_hourly <- function(aoi = aoi,
-                                 aoi_name = name,
+                                 aoi_name = "name",
                                  years = 2021:2021,
                                  months = 5:8,
                                  days = 1:31,
@@ -24,7 +26,10 @@ era5land_download_hourly <- function(aoi = aoi,
                                  variables = c('surface_net_solar_radiation'),
                                  user = "",
                                  key = "",
-                                 download_dir = "."){
+                                 download_dir = ".",
+                                 format = c("netcdf", "grib")){
+
+  format <- match.arg(format)
 
   ### AUTHENTICATE ####
 
@@ -46,6 +51,8 @@ era5land_download_hourly <- function(aoi = aoi,
   # Format time
   hours <- paste0(stringr::str_pad(string = hours, width = 2, side = "left", pad = "0"),":00") # MAX 23
 
+  ext <- ifelse(format == "netcdf", "nc", "grib")
+
   # Out name
   target <- paste0("ERA5-land-hourly_",
                    aoi_name, "_",
@@ -57,7 +64,8 @@ era5land_download_hourly <- function(aoi = aoi,
                    max(days),"d_",
                    min(hours),"-",
                    max(hours),"h_",
-                   length(variables),"vars.grib")
+                   length(variables),
+                   "vars.", format)
 
   # FORMAT BOUNDS
 
@@ -75,7 +83,7 @@ era5land_download_hourly <- function(aoi = aoi,
                   "day" = days,
                   "time" = hours,
                   "area" = bounds,
-                  "format" = "grib",
+                  "format" = format,
                   "target" = target)
 
   file <- wf_request(user     = user,
