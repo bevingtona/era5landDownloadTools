@@ -24,13 +24,13 @@ era5land_read_hourly_stars <- function(aoi_name = name,
   years <- as.character(years)
 
   # Format months
-  months <- str_pad(string = months, width = 2, side = "left", pad = 0)
+  months <- stringr::str_pad(string = months, width = 2, side = "left", pad = 0)
 
   # Format days
-  days <- str_pad(string = days, width = 2, side = "left", pad = "0") # MAX 31
+  days <- stringr::str_pad(string = days, width = 2, side = "left", pad = "0") # MAX 31
 
   # Format time
-  hours <- paste0(str_pad(string = hours, width = 2, side = "left", pad = "0"),":00") # MAX 23
+  hours <- paste0(stringr::str_pad(string = hours, width = 2, side = "left", pad = "0"),":00") # MAX 23
 
   # Out name
   target <- paste0("ERA5-land-hourly_",
@@ -87,7 +87,7 @@ era5land_read_monthly_stars <- function(aoi_name = name,
   years <- as.character(years)
 
   # Format months
-  months <- str_pad(string = months, width = 2, side = "left", pad = 0)
+  months <- stringr::str_pad(string = months, width = 2, side = "left", pad = 0)
 
   # Out name
   target <- paste0("ERA5-land-monthly_",
